@@ -1,0 +1,140 @@
+{
+  "company_profile": {
+    "name": "Acme Corp",
+    "id": "org-8823",
+    "industry": "FinTech",
+    "size": "Enterprise",
+    "employees": 1250,
+    "primary_domain": "company.com",
+    "founded": "2015",
+    "locations": ["San Francisco", "London", "Singapore"]
+  },
+  "security_overview": {
+    "overall_score": 72,
+    "risk_level": "High",
+    "risk_score": 8.4,
+    "security_grade": "C+",
+    "trend": "deteriorating",
+    "active_threats": 12,
+    "critical_issues": 4
+  },
+  "attack_surface": {
+    "total_assets": 45,
+    "domains": {
+      "count": 2,
+      "list": [
+        { "name": "company.com", "risk": "medium", "internet_facing": true },
+        { "name": "acquired-startup.io", "risk": "high", "internet_facing": true }
+      ]
+    },
+    "subdomains": {
+      "count": 4,
+      "internet_facing": 3,
+      "internal": 1,
+      "high_risk_count": 2
+    },
+    "open_ports": {
+      "total": 5,
+      "risky_ports": [
+        { "port": 3389, "protocol": "RDP", "risk": "high", "asset": "legacy.acquired-startup.io" },
+        { "port": 8080, "protocol": "HTTP", "risk": "high", "asset": "api.company.com" }
+      ]
+    },
+    "services": {
+      "total_detected": 4,
+      "outdated": 2,
+      "vulnerable": 2
+    }
+  },
+  "code_security": {
+    "prs_scanned_last_30d": 142,
+    "block_rate": "12%",
+    "issues_detected": {
+      "total": 5,
+      "vulnerabilities": 2,
+      "secret_exposures": 2,
+      "suspicious_intent": 1
+    },
+    "top_issues": [
+      {
+        "type": "Suspicious Intent",
+        "title": "Hidden conditional bypass in auth flow",
+        "severity": "Critical",
+        "location": "authMiddleware.js:142"
+      },
+      {
+        "type": "Vulnerability",
+        "title": "Unsanitized input in login handler",
+        "severity": "High",
+        "location": "authController.js:87"
+      }
+    ]
+  },
+  "vulnerability_intelligence": {
+    "active_cves": 5,
+    "critical_cves": 1,
+    "high_cves": 2,
+    "most_critical_cve": {
+      "id": "CVE-2023-44487",
+      "name": "HTTP/2 Rapid Reset",
+      "cvss": 9.8,
+      "exploit_probability": 95,
+      "assets_affected": ["load-balancer-01", "main-ingress"]
+    },
+    "patching_cadence": {
+      "average_days_to_patch": 14,
+      "industry_benchmark_days": 10
+    }
+  },
+  "incident_response": {
+    "active_incidents": 0,
+    "resolved_last_30d": 2,
+    "mttd": "15m",
+    "mttr": "4h 20m",
+    "recent_incidents": [
+      {
+        "id": "INC-2024-091",
+        "type": "Authentication Bypass",
+        "severity": "Critical",
+        "timestamp": "2024-05-12T14:32:05Z",
+        "status": "Resolved"
+      },
+      {
+        "id": "INC-2024-095",
+        "type": "SQL Injection",
+        "severity": "High",
+        "timestamp": "2024-05-14T09:15:22Z",
+        "status": "Resolved"
+      }
+    ]
+  },
+  "audit_compliance": {
+    "compliance_frameworks": [
+      { "name": "SOC2", "status": "Compliant" },
+      { "name": "GDPR", "status": "At Risk" },
+      { "name": "PCI-DSS", "status": "Compliant" }
+    ],
+    "policy_violations": {
+      "cors": 2,
+      "csp": 2,
+      "total": 4
+    },
+    "critical_violations": [
+      "Access-Control-Allow-Origin: *",
+      "Content-Security-Policy: script-src * 'unsafe-inline'"
+    ]
+  },
+  "threat_landscape": {
+    "top_attack_vectors": [
+      { "vector": "Phishing", "percentage": 35 },
+      { "vector": "Web Application Attack", "percentage": 28 },
+      { "vector": "Brute Force", "percentage": 15 }
+    ],
+    "geo_sources": {
+      "US": "45%",
+      "CN": "20%",
+      "RU": "12%",
+      "other": "23%"
+    }
+  }
+}

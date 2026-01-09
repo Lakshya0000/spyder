@@ -1,0 +1,94 @@
+{
+  "form_sections": [
+    {
+      "id": "company_profile",
+      "title": "Company Profile",
+      "description": "Basic information about your organization to tailor security benchmarks.",
+      "fields": [
+        {
+          "id": "company_name",
+          "label": "Company Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "Acme Corp"
+        },
+        {
+          "id": "industry",
+          "label": "Industry",
+          "type": "select",
+          "required": true,
+          "options": ["FinTech", "HealthTech", "E-commerce", "SaaS", "Manufacturing", "Other"],
+          "description": "Used for industry-specific risk benchmarking."
+        },
+        {
+          "id": "size",
+          "label": "Company Size",
+          "type": "select",
+          "required": true,
+          "options": ["Startup (1-50)", "Growth (51-200)", "Enterprise (201+)"],
+          "description": "Helps in sizing the threat model."
+        },
+        {
+          "id": "locations",
+          "label": "Primary Locations",
+          "type": "multi-select",
+          "required": false,
+          "placeholder": "San Francisco, London..."
+        }
+      ]
+    },
+    {
+      "id": "asset_discovery",
+      "title": "Asset Discovery",
+      "description": "We use this to map your external attack surface.",
+      "fields": [
+        {
+          "id": "primary_domain",
+          "label": "Primary Domain",
+          "type": "domain",
+          "required": true,
+          "placeholder": "company.com",
+          "validation": "^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\\.[a-zA-Z]{2,}$",
+          "description": "Your main root domain. We will auto-discover subdomains from here."
+        },
+        {
+          "id": "additional_domains",
+          "label": "Additional Root Domains",
+          "type": "monitor-list",
+          "required": false,
+          "description": "Other brand domains or acquisitions to monitor."
+        }
+      ]
+    },
+    {
+      "id": "integrations",
+      "title": "Security Integrations",
+      "description": "Connect your tools to enable deep scanning.",
+      "fields": [
+        {
+          "id": "vcs_provider",
+          "label": "Source Control Provider",
+          "type": "oauth-button",
+          "required": true,
+          "options": ["GitHub", "GitLab", "Bitbucket"],
+          "description": "Required for PR-level code security scanning."
+        },
+        {
+          "id": "cloud_provider",
+          "label": "Cloud Infrastructure",
+          "type": "oauth-button",
+          "required": false,
+          "options": ["AWS", "GCP", "Azure"],
+          "description": "Enables firewall and audit capabilities."
+        },
+        {
+          "id": "notification_email",
+          "label": "Security Alert Email",
+          "type": "email",
+          "required": true,
+          "description": "Where critical alerts should be sent."
+        }
+      ]
+    }
+  ]
+}
